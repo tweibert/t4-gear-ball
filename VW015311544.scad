@@ -74,24 +74,12 @@ difference() {
             $fn=precision
          );
         
-    /*
     // Top inner taper
-    translate([0, 0, height/2 - top_hole_depth - top_inner_taper]) 
-        cylinder(
-            h=top_inner_taper, 
-            d1=hole_diameter,
-            d2=top_hole_diameter,
-            $fn=precision
-         );
-
-    */
-    
-    // Top inner taper
-    translate([0, 0, height/2 - top_hole_depth - top_inner_taper_height]) 
+    %translate([0, 0, height/2 - top_hole_depth - top_inner_taper_height]) 
         cylinder(
             h=top_inner_taper_height, 
             d1=hole_diameter,
-            d2=hole_diameter + 2 * top_inner_taper_width,
+            d2=min(hole_diameter + 2 * top_inner_taper_width, top_hole_diameter),
             $fn=precision
          );
 
